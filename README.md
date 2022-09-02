@@ -1,9 +1,9 @@
 # Subdomain_Fuzzer
 
-##Usage : - 
+## Usage : - 
 
-###chmod +x fuzzer
-###./fuzzer <domain_name>
+### chmod +x fuzzer
+### ./fuzzer <domain_name>
 
 
-###example :- ./fuzzer google.com
+### example :- ./fuzzer google.com
