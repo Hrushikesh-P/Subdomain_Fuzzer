@@ -1,0 +1,41 @@
+#!/bin/bash
+
+
+value=`cat <your_wordlist_name>`
+
+echo "
+███████╗██╗░░░██╗███████╗███████╗███████╗██████╗░
+██╔════╝██║░░░██║╚════██║╚════██║██╔════╝██╔══██╗
+█████╗░░██║░░░██║░░███╔═╝░░███╔═╝█████╗░░██████╔╝
+██╔══╝░░██║░░░██║██╔══╝░░██╔══╝░░██╔══╝░░██╔══██╗
+██║░░░░░╚██████╔╝███████╗███████╗███████╗██║░░██║
+╚═╝░░░░░░╚═════╝░╚══════╝╚══════╝╚══════╝╚═╝░░╚═╝"
+
+
+if [ "$1" == "" ];then
+        echo "Usage :- ./fuzzer <domain_name> "
+        echo "Example :- ./fuzzer google.com  "
+
+else 
+        for i in $value ; do
+   
+        
+                     res=`ping $i.$1 -c 2 2> /dev/null | grep 64`
+                     if [ "$res" == "" ]; then   
+                                echo "---------------------------------"
+                                echo  -e "\e[32m$i.$1 is dead\e[0m"
+                                let counter1+=1
+                    else 
+                                echo "---------------------------------"
+                                echo "$i.$1.com is alive"
+                                let counter2+=1
+                    fi                    
+        done
+
+
+
+echo "---------------------------------"
+echo "Total Alive :- $counter2"
+echo "Total Dead  :- $counter1"      
+
+fi                                      		
